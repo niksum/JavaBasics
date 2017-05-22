@@ -45,7 +45,7 @@ public class CallableExample {
 				}
 
 				if (!fuTas1.isDone())
-					System.out.println("Threa output" + fuTas1.get());
+					System.out.println("Thread output" + fuTas1.get());
 				System.out.println("waiting for second task to complete");
 				String s = fuTas2.get(200L, TimeUnit.MILLISECONDS);
 				if (s != null) {
