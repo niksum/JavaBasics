@@ -43,6 +43,7 @@ public class App {
 		emp.setEmpHeight(120);
 		ses.save(emp);
 		
+		System.out.println("Checking");
 		EmpSkillSet skillSet = new EmpSkillSet("java",7);
 		EmpSkillSet skillSet2 = new EmpSkillSet("avaa",3);
 //		skillSet.setEmp(emp);
