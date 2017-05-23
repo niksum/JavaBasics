@@ -6,13 +6,17 @@
 <hibernate-configuration>
 
 	<session-factory>
-		<property name="hbm2ddl.auto">create</property>
+		<property name="hbm2ddl.auto">update</property>
 		<property name="dialect">org.hibernate.dialect.Oracle9Dialect</property>
 		<property name="connection.url">jdbc:oracle:thin:@//localhost:1521/xe</property>
 		<property name="connection.username">nik_test_user</property>
 		<property name="connection.password">4444</property>
 		<property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
 		<property name="show_sql">true</property>
+		
+		<property name="hibernate.cache.use_second_level_cache">true</property>
+		<property name="hibernate.cache.use_query_cache">false</property>
+		<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
 	</session-factory>
 
 </hibernate-configuration>  

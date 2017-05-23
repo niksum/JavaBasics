@@ -24,12 +24,18 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.SecondaryTable;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 @Entity
 @Table(name = "EMPLOYEE_DATA")
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="EMP_TYPE", discriminatorType=DiscriminatorType.STRING)
 @DiscriminatorValue(value="EMPLOYEE")
 @SecondaryTable(name="EMP_PERSONAL_INFO",pkJoinColumns=@PrimaryKeyJoinColumn(name="EMP_ID"))
+@Cache(usage=CacheConcurrencyStrategy.READ_ONLY, region="empl")
 public class Employee {
 
 
@@ -61,6 +67,7 @@ public class Employee {
 	private int empHeight;
 	
 	@OneToMany(fetch=FetchType.LAZY)
+
 	private Set<EmpSkillSet> skillSet = new HashSet<EmpSkillSet>();
 	
 	@ManyToMany(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
