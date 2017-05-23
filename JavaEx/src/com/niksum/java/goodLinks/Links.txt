@@ -1,0 +1,22 @@
+SOLID principal 
+https://dzone.com/articles/the-solid-principles-in-real-life
+S :- Single Responsibility Principal
+	The single responsibility principle (SRP) asserts that a class or module should do one thing only. 
+	Now, this is kind of subjective, so the principle is reinforced with the heuristic that the class 
+	or module should have only one reason to change.
+
+O :- Open/Closed Principal
+	The Open/Closed Principle states that code entities should be open for extension, but closed for modification.
+	To put this more concretely, you should write a class that does what it needs to flawlessly and not assuming 
+	that people should come in and change it later. 
+	It's closed for modification, but it can be extended by, for instance, inheriting from it and overriding 
+	or extending certain behaviors.
+
+L :- Liskov Substitution Principal
+	The Liskov Substitution Principle (LSP) is the one here that is most unique to object-oriented programming. 
+	The LSP says, basically, that any child type of a parent type should be able to stand in for that parent 
+	without things blowing up.
+
+I :- Interface Segregation Principal
+
+D :- Dependency Inversion
