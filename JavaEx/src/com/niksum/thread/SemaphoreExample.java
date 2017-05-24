@@ -3,7 +3,7 @@ package com.niksum.thread;
 import java.util.concurrent.Semaphore;
 
 public class SemaphoreExample {
-	private static Semaphore sem = new Semaphore(4);
+	private static Semaphore sem = new Semaphore(3);
 
 	static class ATMThread extends Thread {
 		public String name;

@@ -1,0 +1,29 @@
+Good example for CountDownLath and CyclicBarrier
+http://shazsterblog.blogspot.com/2011/12/comparison-of-countdownlatch.html
+
+CyclicBarrier
+	cyclicBarrier.await();
+	cyclicBarrier.reset();
+	
+	CyclicBarrier(int parties)	
+		Creates a new CyclicBarrier that will trip when the given number of parties (threads) are waiting upon it, 
+		and does not perform a predefined action when the barrier is tripped.
+	CyclicBarrier(int parties, Runnable barrierAction)
+		Creates a new CyclicBarrier that will trip when the given number of parties (threads) are waiting upon it, 
+		and which will execute the given barrier action when the barrier is tripped, performed by the last thread entering the barrier.
+
+CountDownLatch
+	countDownLatch.countDown(); 
+	countDownLatch.await();
+	
+	CountDownLatch(int count)
+		Constructs a CountDownLatch initialized with the given count.
+
+Semaphore	
+	Semaphore(int permits)
+		Creates a Semaphore with the given number of permits and nonfair fairness setting.
+	Semaphore(int permits, boolean fair)
+		Creates a Semaphore with the given number of permits and the given fairness setting.
+	
+	semaphore.acquire();
+	semaphore.release();	
