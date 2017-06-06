@@ -41,8 +41,8 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		return "Employee [empId=" + empId + ", empName=" + empName + ", empDetail=" + empDetail + ", empDOJ=" + empDOJ
-				+ ", empGender=" + empGender + ", empHeight=" + empHeight + ", skillSet=" + skillSet + ", proj=" + proj
+		return "Employee [\n \t empId=" + empId + ", \n \t empName=" + empName + ", \n \t empDetail=" + empDetail + ", \n \t empDOJ=" + empDOJ
+				+ ", \n \t empGender=" + empGender + ", \n \t empHeight=" + empHeight + ", \n \t skillSet=" + skillSet + ", \n \t proj=" + proj
 				+ "]";
 	}
 

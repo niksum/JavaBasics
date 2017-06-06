@@ -63,6 +63,6 @@ public class EmployeeDetails implements Serializable{
 
 	@Override
 	public String toString() {
-		return "EmployeeDetails [empDepartment=" + empDepartment + ", empDesignation=" + empDesignation + "]";
+		return "EmployeeDetails [ \n \t \t empDepartment=" + empDepartment + ", \n \t \t empDesignation=" + empDesignation + "]";
 	}
 }

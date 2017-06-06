@@ -30,7 +30,7 @@ public class Project implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Project [projectId=" + projectId + ", projectName=" + projectName + ", projectClient=" + projectClient
+		return "Project [\n \t \t projectId=" + projectId + ", \n \t \t projectName=" + projectName + ", \n \t \t projectClient=" + projectClient
 				+ "]";
 	}
 

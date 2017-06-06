@@ -5,12 +5,17 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Projection;
+import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Restrictions;
 import org.hibernate.service.ServiceRegistry;
 
 /**
@@ -37,8 +42,67 @@ public class App {
 		
 //		updateData();
 //		mergeData();
-		sessionLevelCaching();
+//		sessionLevelCaching();
+		criteriaUsage();
+//		criteriaWithRestrictionUsage();
+		criteriaProjectionUsage();
 		sf.close();
+	}
+	
+	public static void criteriaProjectionUsage(){
+		System.out.println("****criteriaProjectionUsage*****");
+		Session ses = sf.openSession();
+		Criteria criteria = ses.createCriteria(Employee.class);
+		criteria.setProjection(Projections.property("empId"));
+		List result = criteria.list();
+		System.err.println(result);
+		
+		Criteria criteria1 = ses.createCriteria(Employee.class);
+		criteria1.setProjection(Projections.projectionList()
+				.add(Projections.property("empId"))
+				.add(Projections.property("empGender")));
+		
+		List result1 = criteria1.list();
+		System.err.println(result1);
+	}
+	
+	public static void criteriaWithRestrictionUsage(){
+		System.out.println("****criteriaWithRestrictionUsage*****");
+		Session ses = sf.openSession();
+		Criteria criteria = ses.createCriteria(Employee.class);
+		Criterion nameCriterion = Restrictions.eq("empId",678);
+		criteria.add(nameCriterion);
+		List<Employee> list = criteria.list();
+		for (Employee employee : list) {
+			System.out.println(employee);
+		}
+		
+		Criteria criteria1 = ses.createCriteria(Employee.class)
+				.createCriteria("empDetail")
+				.add(Restrictions.eq("empDepartment","IT"));
+
+		Criteria criteria2 = ses.createCriteria(Employee.class)
+				.createCriteria("skillSet")
+				.add(Restrictions.eq("skillName","java"));
+		
+		List<Employee> list1 = criteria1.list();
+		for (Employee employee : list1) {
+			System.out.println(employee);
+		}
+		
+		List<Employee> list2 = criteria2.list();
+		for (Employee employee : list2) {
+			System.out.println(employee);
+		}
+	}
+	public static void criteriaUsage(){
+		Session ses = sf.openSession();
+		System.out.println("**** Criteria Usage ****");
+		Criteria criteria = ses.createCriteria("com.nikhil.test.annotation.Employee");
+		List<Employee> list = criteria.list();
+		for (Employee employee : list) {
+			System.out.println(employee);
+		}
 	}
 	public static void sessionLevelCaching(){
 		Session ses = sf.openSession();

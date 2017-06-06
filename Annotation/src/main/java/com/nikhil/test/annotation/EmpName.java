@@ -37,7 +37,7 @@ public class EmpName {
 
 	@Override
 	public String toString() {
-		return "EmpName [firstName=" + firstName + ", lastName=" + lastName + "]";
+		return "EmpName [\n \t \t firstName=" + firstName + ", \n \t \t lastName=" + lastName + "]";
 	}
 
 }
