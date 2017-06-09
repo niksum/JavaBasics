@@ -5,6 +5,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 public class ReentrantRWLEx {
 	private static int count =0;
 	private static final ReentrantReadWriteLock lock = new ReentrantReadWriteLock(true);
+	
 	private static class Producer implements Runnable{
 		private ReentrantReadWriteLock.WriteLock write = null;
 		private String prodNm = null;
@@ -57,7 +58,7 @@ public class ReentrantRWLEx {
 	}
 	
 	public static void main(String[] args) {
-		Thread prodThread = new Thread(new Producer(lock.writeLock(), "first"));
+		Thread prodThread = new Thread(new Producer(lock.writeLock(), "First"));
 		Thread conThread1 = new Thread(new Consumer(lock.readLock(), " First"));
 		Thread conThread2 = new Thread(new Consumer(lock.readLock(), " Second"));
 		Thread prodThread2 = new Thread(new Producer(lock.writeLock(), "Second"));

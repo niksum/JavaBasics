@@ -13,7 +13,7 @@
 		<property name="hibernate.connection.password">4444</property>
 		<property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
 		<property name="hibernate.show_sql">false</property>
-		
+		<property name="hibernate.generate_statistics">true</property>
 		<property name="hibernate.cache.use_second_level_cache">true</property>
 		<property name="hibernate.cache.use_query_cache">false</property>
 		<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>

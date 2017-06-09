@@ -7,13 +7,13 @@ import java.util.Set;
 
 import org.hibernate.Criteria;
 import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Criterion;
-import org.hibernate.criterion.Projection;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.service.ServiceRegistry;
@@ -27,9 +27,13 @@ public class App {
 	static ServiceRegistry sr = null;
 
 	public static void main(String[] args) {
-		Configuration cfg = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Employee.class)
-				.addAnnotatedClass(EmpName.class).addAnnotatedClass(EmployeeDetails.class)
-				.addAnnotatedClass(Contractor.class).addAnnotatedClass(EmpSkillSet.class)
+		Configuration cfg = new Configuration()
+				.configure("hibernate.cfg.xml")
+				.addAnnotatedClass(Employee.class)
+				.addAnnotatedClass(EmpName.class)
+				.addAnnotatedClass(EmployeeDetails.class)
+				.addAnnotatedClass(Contractor.class)
+				.addAnnotatedClass(EmpSkillSet.class)
 				.addAnnotatedClass(Project.class);
 
 		// Given below approach is not recommended by hibernate.
@@ -43,19 +47,41 @@ public class App {
 //		updateData();
 //		mergeData();
 //		sessionLevelCaching();
-		criteriaUsage();
+//		criteriaUsage();
 //		criteriaWithRestrictionUsage();
-		criteriaProjectionUsage();
+//		criteriaProjectionUsage();
+		sqlQueryUsage();
 		sf.close();
 	}
 	
+	public static void sqlQueryUsage(){
+		System.out.println("****sqlQueryUsage*****");
+		Session ses = sf.openSession();
+		System.out.println("--> Basic Entiry query");
+		String projSql = "Select * from PROJECT";
+		SQLQuery query = ses.createSQLQuery(projSql);
+		//Adding entity is must in case you are doing entity queries
+		query.addEntity(Project.class);
+		List<Project> list = query.list();
+		for (Project project : list) {
+			System.out.println(project);
+		}
+		
+		System.out.println("--> Scalar and named sql query");
+		String projSql1 = "Select PROJ_ID,PROJ_CLIENT from PROJECT where PROJ_NAME = :PROJ_NAME";
+		SQLQuery query1 = ses.createSQLQuery(projSql1);
+		query1.setParameter("PROJ_NAME", "eflow");
+		query1.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
+		List<Project> list1 = query1.list();
+		System.out.println(list1);
+	}
 	public static void criteriaProjectionUsage(){
 		System.out.println("****criteriaProjectionUsage*****");
 		Session ses = sf.openSession();
 		Criteria criteria = ses.createCriteria(Employee.class);
 		criteria.setProjection(Projections.property("empId"));
 		List result = criteria.list();
-		System.err.println(result);
+		System.out.println(result);
 		
 		Criteria criteria1 = ses.createCriteria(Employee.class);
 		criteria1.setProjection(Projections.projectionList()
@@ -63,7 +89,9 @@ public class App {
 				.add(Projections.property("empGender")));
 		
 		List result1 = criteria1.list();
-		System.err.println(result1);
+		for (Object object : result1) {
+			System.out.println(object.toString());
+		}
 	}
 	
 	public static void criteriaWithRestrictionUsage(){
