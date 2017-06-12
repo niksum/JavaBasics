@@ -6,8 +6,9 @@ public class BasicTest {
 	public static void main(String[] args) {
 //		System.out.println(2 - 1.10);
 //		findOutOdd(7);
-		subtractionDouble();
-		divisionLong();
+//		subtractionDouble();
+//		divisionLong();
+		swaptWithoutTemp();
 		System.out.println(
 				Long.toHexString(0x100000000L + 0xcafebabe));
 	}
@@ -38,5 +39,15 @@ public class BasicTest {
 		System.out.println(2.00-1.10); // will not give precise result
 		// for monetary calculation better to use int, long or BigDecimal
 		System.out.println(new BigDecimal("2.00").subtract(new BigDecimal("1.10")));
+				
+	}
+	public static void swaptWithoutTemp(){
+		int a = 98;
+		int b = 77;
+		
+		a = a+b;
+		b = a-b;
+		a = a-b;
+		System.out.println(a + "  " + b);
 	}
 }

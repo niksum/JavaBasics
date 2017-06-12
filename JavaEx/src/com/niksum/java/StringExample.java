@@ -4,14 +4,12 @@ public class StringExample {
 	public static String test = "";
 
 	public static void main(String[] args) {
-		try {
-			Thread.sleep(50000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
 		new StringExample().test1(test);
 		System.out.println(test);
+		
+		String _ = "Hello";
+	
 	}
 
 	void test1(String input) {
