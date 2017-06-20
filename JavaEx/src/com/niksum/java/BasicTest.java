@@ -8,11 +8,23 @@ public class BasicTest {
 //		findOutOdd(7);
 //		subtractionDouble();
 //		divisionLong();
-		swaptWithoutTemp();
+//		swaptWithoutTemp();
+		concatinateChar();
 		System.out.println(
 				Long.toHexString(0x100000000L + 0xcafebabe));
+		
+	
 	}
 	
+	public static void concatinateChar(){
+		System.out.println('h'+'a');
+		System.out.println("H" + "A");
+		System.out.println("" + 'h' + 'a');
+		System.out.println(new StringBuffer().append('h').append('a'));
+		System.out.println("2 + 2 = "+ 2+2);
+		System.out.println(2 + 2+ 2+2);
+		System.out.println(2 + 2+ " = 2+2");
+	}
 	public static void divisionLong(){
 		final long micros = 24*60*60*1000*1000;
 		final long millis =  24*60*60*1000;
@@ -50,4 +62,5 @@ public class BasicTest {
 		a = a-b;
 		System.out.println(a + "  " + b);
 	}
+	
 }
