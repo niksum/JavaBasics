@@ -1,4 +1,4 @@
-package com.niksum.java.designPattern;
+package com.niksum.java.designPattern.behavioral;
 
 import java.util.ArrayList;
 import java.util.List;
