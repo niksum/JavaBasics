@@ -1,0 +1,56 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:aop = "http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+    http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd ">
+	<bean id="aBean" class="com.niksum.learn.spring.basicTest.xmlconfig.bean.ABean" />
+	<bean id="aBeanSecond" class="com.niksum.learn.spring.basicTest.xmlconfig.bean.ABean" />
+	<bean id="bBean" class="com.niksum.learn.spring.basicTest.xmlconfig.bean.BBean" />
+	<bean id="bBeanSecond" class="com.niksum.learn.spring.basicTest.xmlconfig.bean.BBean"
+		scope="prototype" />
+
+	<bean id="asBean"
+		class="com.niksum.learn.spring.basicTest.xmlconfig.bean.ASingletonBean"
+		scope="singleton">
+		<property name="bpBean" ref="bpBean" />
+	</bean>
+	<bean id="bpBean"
+		class="com.niksum.learn.spring.basicTest.xmlconfig.bean.BPrototypeBean"
+		scope="prototype">
+	</bean>
+	
+	<bean id="reqMgr"
+		class="com.niksum.learn.spring.basicTest.xmlconfig.bean.RequestManager"
+		scope="singleton">
+	</bean>
+	
+	<bean id="reqHand"
+		class="com.niksum.learn.spring.basicTest.xmlconfig.bean.RequestHandler"
+		scope="prototype">
+	</bean>
+	
+	<bean id="reqMgrAoP"
+		class="com.niksum.learn.spring.basicTest.xmlconfig.bean.RequestManagerAoPProxy"		
+		scope="singleton">
+		<property name="requestHandler" ref="reqHandAoP"></property>
+	</bean>
+	
+	<bean id="reqHandAoP"
+		class="com.niksum.learn.spring.basicTest.xmlconfig.bean.RequestHandlerAoPProxy"
+		scope="prototype">
+		<aop:scoped-proxy/>
+	</bean>
+
+	<bean id="reqMgrLookUp"
+		class="com.niksum.learn.spring.basicTest.xmlconfig.bean.RequestManagerLookUpMethod"		
+		scope="singleton">
+		<lookup-method name="getRequestHandler" bean="reqHandLookUp"/>		
+	</bean>
+	
+	<bean id="reqHandLookUp"
+		class="com.niksum.learn.spring.basicTest.xmlconfig.bean.RequestHandlerLookUpMethod"
+		scope="prototype">
+	</bean>		
+</beans> 
