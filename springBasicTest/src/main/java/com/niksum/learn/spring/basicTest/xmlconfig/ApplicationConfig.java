@@ -6,6 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.niksum.learn.spring.basicTest.xmlconfig.bean.ABean;
 import com.niksum.learn.spring.basicTest.xmlconfig.bean.ASingletonBean;
 import com.niksum.learn.spring.basicTest.xmlconfig.bean.BBean;
+import com.niksum.learn.spring.basicTest.xmlconfig.bean.BProtoHavingSingBean;
 import com.niksum.learn.spring.basicTest.xmlconfig.bean.BPrototypeBean;
 import com.niksum.learn.spring.basicTest.xmlconfig.bean.RequestManager;
 import com.niksum.learn.spring.basicTest.xmlconfig.bean.RequestManagerAoPProxy;
@@ -34,10 +35,28 @@ public class ApplicationConfig {
 //		framework (using CGLIB library) and this subclass will override and provide implementation 
 //		for the methods which are configured as look-up method.
 //		Since look-up method has to be implemented so it has to be either defined as abstract method or you can provide some dummy implementation.
-		diIssueLookUp();
+//		diIssueLookUp();
 		// c) aop:scoped-proxy :- in this case we create proxy of prototype bean
 //		diIssueAoPScoped();
+		
+		
+		// Prototype bean having singleton bean in it
+		diIssueProtoHavingSing();
 	}
+	
+	public static void diIssueProtoHavingSing(){
+		
+		System.out.println(" >>>>>>>>>>>>>>>  diIssueProtoHavingSing  <<<<<<<<<<<<<<<<<<< \n\n");
+		
+		BProtoHavingSingBean bProt = (BProtoHavingSingBean) factory.getBean("bProtoHavingSingBean");
+		bProt.methodOfBBean();
+		bProt.methodOfBBean();
+		
+		BProtoHavingSingBean bProt2 = (BProtoHavingSingBean) factory.getBean("bProtoHavingSingBean");
+		bProt2.methodOfBBean();
+	}
+	
+	
 	public static void depenInjectionIssue(){
 		
 		ASingletonBean aSingletonBean = (ASingletonBean)factory.getBean("asBean");
