@@ -1,0 +1,31 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+    http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd ">	
+
+	<bean id="leftHandFork"
+		class="com.niksum.learn.spring.basicTest.cirularDIIssue.bean.LeftHandFork"
+		scope="singleton">	
+		<property name="rightHandFork" ref="rightHandFork"/>	
+	</bean>
+
+	<bean id="rightHandFork"
+		class="com.niksum.learn.spring.basicTest.cirularDIIssue.bean.RightHandFork"
+		scope="singleton">
+		<property name="leftHandFork" ref="leftHandFork"/>
+	</bean>
+	
+	<bean id="left"
+		class="com.niksum.learn.spring.basicTest.cirularDIIssue.bean.ForkLeft"
+		scope="singleton">	
+		<constructor-arg name="forkRight" ref="right"/>	
+	</bean>
+
+	<bean id="right"
+		class="com.niksum.learn.spring.basicTest.cirularDIIssue.bean.ForkRight"
+		scope="singleton">
+		<constructor-arg name="forkLeft" ref="left"/>
+	</bean>	
+</beans> 
