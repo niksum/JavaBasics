@@ -27,3 +27,29 @@ Semaphore
 	
 	semaphore.acquire();
 	semaphore.release();	
+
+Runnable task = () -> System.out.println("Running task on " + Thread.currentThread().getName());	
+
+new Thread(task).start();
+
+ExecutorService service = Executors.newSingleThreadExecutor();
+	service.submit(task);
+	service.shutdown();
+
+Callable<String> workerTask = () -> {
+			return ("Working on callable call method " + Thread.currentThread().getName());
+		};
+
+ExecutorService service3 = Executors.newFixedThreadPool(3);
+		Future<String> fu = null;
+		try {
+			for (int i = 0; i < 8; i++) {
+				fu = service3.submit(workerTask);
+				System.out.println("I got result " + fu.get());
+			}
+		} catch (InterruptedException | ExecutionException e) {
+			e.printStackTrace();
+		} finally {
+			service3.shutdown();
+		}
+			

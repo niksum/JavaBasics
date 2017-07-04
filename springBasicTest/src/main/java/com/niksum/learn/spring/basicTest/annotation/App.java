@@ -1,5 +1,8 @@
 package com.niksum.learn.spring.basicTest.annotation;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -13,7 +16,7 @@ import com.niksum.learn.spring.basicTest.annotation.bean.A;
 
 public class App 
 {
-    public static void main( String[] args )
+    public static void main( String[] args ) 
     {
        BeanFactory beanFactory = new AnnotationConfigApplicationContext(AppConfig.class);
        A a = (A)beanFactory.getBean("A");
@@ -21,5 +24,16 @@ public class App
        a.processA();
 //       B b = (B)beanFactory.getBean("B");
 //       b.toString();
-    }
+       
+       
+    
+       
+			
+		}
+           
+           
+
+         
+       
+    
 }

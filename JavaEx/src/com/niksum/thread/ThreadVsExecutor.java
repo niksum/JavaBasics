@@ -16,12 +16,12 @@ public class ThreadVsExecutor {
 			new Thread(task).start();
 		}
 
-		// Let's se the same result in case of using executors
+		// Let's see the same result in case of using executors
 		// in single thread model we will be using same thread to execute all
 		// task.
 		ExecutorService service = Executors.newSingleThreadExecutor();
-		Executors.newCachedThreadPool();
-		ScheduledExecutorService sc = Executors.newScheduledThreadPool(4);
+//		Executors.newCachedThreadPool();
+//		ScheduledExecutorService sc = Executors.newScheduledThreadPool(4);
 		for (int i = 0; i < 8; i++) {
 			service.submit(task);
 		}
