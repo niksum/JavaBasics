@@ -25,7 +25,7 @@ public class SemaphoreExample {
 					for (int i = 0; i < 4; i++) {
 						System.out.println("\t \t"+ name + " Performing operation " + i + ", available semaphore permits : "
 								+ sem.availablePermits());
-						Thread.sleep(1000);
+						Thread.sleep(300);
 					}
 				} finally {
 					System.out.println(name + " Releasing lock");
@@ -40,7 +40,7 @@ public class SemaphoreExample {
 	}
 
 	public static void main(String[] args) {
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 20; i++) {
 			ATMThread thread = new ATMThread("Thread#" + i);
 			thread.start();
 		}
