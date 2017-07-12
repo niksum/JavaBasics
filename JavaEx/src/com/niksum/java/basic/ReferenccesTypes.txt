@@ -1,0 +1,30 @@
+Strong Reference:We use Strong references in Java everywhere: we can create an object and then assign it to a reference. 
+Note that if the object has a strong reference, this object is never be garbage collected.
+
+Soft Reference: If an object has no strong reference but has a soft reference, then the garbage collector reclaims 
+this object’s memory when GC needs to free up some memory. To get Object from a soft reference, one can invoke the get() method. 
+If the object is not GCed, it returns the object, otherwise , it returns null.
+
+Weak Reference: If an object has no strong reference but has a weak reference then GC reclaims this object’s memory in next run even 
+though there is enough memory. 
+
+Phantom Reference: If an object does not have any of the above references then it may have a phantom reference. 
+Phantom references can’t be accessed directly. When using a get() method it will always return null. 
+
+Phantom Reference can be used in situations, where sometimes using finalize() is not  sensible.This is a special 
+reference which says that the object was already finalized, and the garbage collector is ready to reclaim its memory.
+
+
+A Strong reference is a normal reference that protects the referred object from collection by GC. i.e. Never garbage collects.
+
+A Soft reference is eligible for collection by garbage collector, but probably won't be collected until its memory is needed. 
+i.e. garbage collects before OutOfMemoryError.
+
+A Weak reference is a reference that does not protect a referenced object from collection by GC. i.e. garbage collects when no Strong or Soft refs.
+
+A Phantom reference is a reference to an object is phantomly referenced after it has been finalized, but before its allocated memory has been reclaimed.
+we can use Phantom References to implement a Connection Pool.
+
+we should avoid finalize() as much as possible. There is no guarantee if the finalize() method will be called promptly following garbage collection, 
+or even it will be called. If the finalize method runs for a long time, it can delay execution of finalize methods of other objects. 
+Instead of relying on finalize(), we can use reference types define in java.lang.ref package.

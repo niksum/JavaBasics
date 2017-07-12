@@ -25,7 +25,6 @@ public class OddEvenExample {
 		
 		service.shutdown();
 		
-		PriorityQueue<E>
 	}
 
 	private static class EvenThread implements Runnable {

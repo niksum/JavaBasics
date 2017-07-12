@@ -20,3 +20,8 @@ L :- Liskov Substitution Principal
 I :- Interface Segregation Principal
 
 D :- Dependency Inversion
+
+
+
+https://stackoverflow.com/questions/2423622/volatile-vs-static-in-java
+http://javarevisited.blogspot.com/2017/01/can-we-make-array-volatile-in-java.html
