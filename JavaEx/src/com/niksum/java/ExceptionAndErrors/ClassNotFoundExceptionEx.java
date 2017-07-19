@@ -1,4 +1,4 @@
-package com.niksum.java;
+package com.niksum.java.ExceptionAndErrors;
 
 public class ClassNotFoundExceptionEx {
 	public static void main(String[] args) {
