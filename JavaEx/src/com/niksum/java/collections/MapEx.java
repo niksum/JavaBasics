@@ -10,5 +10,6 @@ public class MapEx {
 		Map<String, String> myMap = new HashMap<>();
 		Map<String, String> myLinkedMap = new LinkedHashMap<>();
 		Map<String, String> myConcurrentMap = new ConcurrentHashMap();
+		myMap.put(key, value)
 	}
 }
