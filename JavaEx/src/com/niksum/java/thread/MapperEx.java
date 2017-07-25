@@ -1,4 +1,4 @@
-package com.niksum.thread;
+package com.niksum.java.thread;
 
 import java.util.Collections;
 import java.util.HashMap;

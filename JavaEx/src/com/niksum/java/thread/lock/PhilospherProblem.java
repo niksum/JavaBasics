@@ -1,4 +1,4 @@
-package com.niksum.thread;
+package com.niksum.java.thread.lock;
 
 import java.util.Random;
 import java.util.concurrent.ExecutorService;

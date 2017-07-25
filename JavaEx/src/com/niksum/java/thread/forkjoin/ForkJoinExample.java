@@ -1,4 +1,4 @@
-package com.niksum.thread.forkjoin;
+package com.niksum.java.thread.forkjoin;
 
 import java.io.File;
 import java.util.concurrent.RecursiveTask;

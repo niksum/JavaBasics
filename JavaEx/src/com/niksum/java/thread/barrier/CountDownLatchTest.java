@@ -1,4 +1,4 @@
-package com.niksum.thread;
+package com.niksum.java.thread.barrier;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

@@ -1,4 +1,4 @@
-package com.niksum.thread;
+package com.niksum.java.thread.lock;
 
 import java.util.ArrayList;
 import java.util.List;

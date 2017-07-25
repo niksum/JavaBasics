@@ -1,4 +1,4 @@
-package com.niksum.thread;
+package com.niksum.java.thread;
 
 import java.util.concurrent.BlockingDeque;
 import java.util.concurrent.ExecutorService;

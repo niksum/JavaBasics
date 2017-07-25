@@ -1,4 +1,4 @@
-package com.niksum.thread.procon;
+package com.niksum.java.thread.procon;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

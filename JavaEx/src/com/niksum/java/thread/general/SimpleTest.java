@@ -1,4 +1,4 @@
-package com.niksum.thread;
+package com.niksum.java.thread.general;
 
 public class SimpleTest {
 	public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package com.niksum.thread.procon;
+package com.niksum.java.thread.procon;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;

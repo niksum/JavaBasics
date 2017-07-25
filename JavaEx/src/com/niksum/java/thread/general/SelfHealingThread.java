@@ -1,4 +1,4 @@
-package com.niksum.thread;
+package com.niksum.java.thread.general;
 
 import java.lang.Thread.UncaughtExceptionHandler;
 import java.util.concurrent.Callable;

@@ -1,4 +1,4 @@
-package com.niksum.thread;
+package com.niksum.java.thread.general;
 
 public class DeadLockCondition {
 	private static Object firstResource = new Object();

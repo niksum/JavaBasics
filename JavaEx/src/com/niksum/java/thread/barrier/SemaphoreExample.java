@@ -1,4 +1,4 @@
-package com.niksum.thread;
+package com.niksum.java.thread.barrier;
 
 import java.util.concurrent.Semaphore;
 

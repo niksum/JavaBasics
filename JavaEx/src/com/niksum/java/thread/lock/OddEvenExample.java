@@ -1,4 +1,4 @@
-package com.niksum.thread.lock;
+package com.niksum.java.thread.lock;
 
 import java.util.PriorityQueue;
 import java.util.concurrent.ExecutorService;
