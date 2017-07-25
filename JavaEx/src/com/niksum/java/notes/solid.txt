@@ -1,0 +1,7 @@
+SOLID
+
+S - Single responsibility principal :- One class should have one and only one responsibility.
+O - Open Closed principal :- Software components should be open for extension, but closed for modification.
+L - Liskov's substitution principal :- Derived types must be completely substitutable for their base type.
+I - Interface segregation principal :- Clients should not be forced to implement unnecessary methods which they will not use.
+D - Dependency Inversion principal :- Depend on abstractions, not on concretions.

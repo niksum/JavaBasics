@@ -10,6 +10,11 @@ public class MapEx {
 		Map<String, String> myMap = new HashMap<>();
 		Map<String, String> myLinkedMap = new LinkedHashMap<>();
 		Map<String, String> myConcurrentMap = new ConcurrentHashMap();
-		myMap.put(key, value)
+		int n = 16;
+		
+		System.out.println(n | n>>1);
+		
+		n |= n >>> 1;
+		
 	}
 }

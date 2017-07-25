@@ -1,0 +1,9 @@
+NoClassDefFoundError in java comes when JVM is not able to find a particular class at runtime which was available at compile time.
+ClassNotFoundException in java comes when JVM is not able to load a class at run-time only and the name of class was provided during
+runtime and not at compile time. 
+
+OutOfMemoryError
+http://javarevisited.blogspot.com/2011/09/javalangoutofmemoryerror-permgen-space.html#axzz4nFvWowPJ
+1) The java.lang.OutOfMemoryError: Java heap space
+2) The java.lang.OutOfMemoryError: PermGen space
+
