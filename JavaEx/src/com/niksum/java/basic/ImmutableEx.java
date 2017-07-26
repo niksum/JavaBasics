@@ -1,4 +1,4 @@
-package com.niksum.java;
+package com.niksum.java.basic;
 
 import java.util.ArrayList;
 import java.util.Collections;

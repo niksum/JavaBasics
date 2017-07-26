@@ -1,4 +1,4 @@
-package com.niksum.java;
+package com.niksum.java.basic;
 
 public class StringEx {
 	public static void main(String[] args) {
