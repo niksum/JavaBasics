@@ -37,6 +37,6 @@ class AbsClsClient extends AbsCls{
 public class AbstractRules {
 	public static void main(String[] args) {
 		AbsCls abs = new AbsClsClient();
-		java.lang.ClassLoader
+		
 	}
 }
