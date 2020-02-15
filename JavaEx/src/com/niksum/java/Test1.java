@@ -38,6 +38,7 @@ public class Test1 {
 //		}
 		
 		
+		
 		Map<ABC, Integer> myMap = new HashMap<ABC, Integer>();
 		myMap.put(new ABC("ABC"), 2);
 		myMap.put(new ABC("AAC"), 5);
